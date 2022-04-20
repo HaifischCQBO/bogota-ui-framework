@@ -22,7 +22,7 @@ public class BaseClass {
 
     @AfterMethod
     public void Finished(){
-     driver.quit();
+     //driver.quit();
     }
 
 

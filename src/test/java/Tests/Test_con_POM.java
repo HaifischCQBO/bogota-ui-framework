@@ -1,41 +1,41 @@
-package Tests;
+package Test;
 
 import Baseclass.BaseClass;
-import Helpers.Helpers;
-import Pages.Blazedemo.Page_Index;
-import Pages.Blazedemo.Page_Reserve;
+import Pages.Page_Index;
+import Pages.Page_Reserve;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import Helpers.Helpers;
 
 public class Test_con_POM extends BaseClass {
 
     @Test
-    public void Take_a_Flight_test() {
+    public void Test1() {
+        Page_Index index = new Page_Index();
+        Page_Reserve reserve = new Page_Reserve();
+        Helpers helpers = new Helpers();
 
-        String departure_city= "Mexico City";
-        String destination_city= "Berlin";
+        String departure_city = "Philadelphia";
+        String destination_city = "Rome";
 
+        helpers.getURL(index.getUrl());
 
-        Helpers helpers = new Helpers(driver);
-        helpers.getURL("https://blazedemo.com/");
-        Page_Index page_index = new Page_Index(driver);
-        page_index.select_departure_city(departure_city);
-        page_index.select_destination_city(destination_city);
-        page_index.click_find_flights();
+        //Verifico que se se encuentre realmente en la pagina index.
+        Assert.assertEquals(driver.getCurrentUrl(), index.getUrl(), "EL URL ACTUAL NO CORRESPONDE CON EL URL DE LA PAGINA 'INDEX'");
 
+        index.select_departure_city(departure_city);
+        index.select_destination_city(destination_city);
+        index.click_find_text();
 
-        /**
-         * 1. Una funcion que obtenga el elemento desde la pagina -> Page_Reserve
-         * 2. Es una funcion para saber si el texto contiene nuestras variables departure y destination city -> Helpers
-         *    2b. Retornar un boolean
-         *
-         * 3. Una validacion por assert para ambas ciudades -> Tests
-         * **/
-        destination_city= "Berlin2";
-        Page_Reserve page_reserve = new Page_Reserve(driver);
-        Assert.assertTrue(page_reserve.city_confirmation(departure_city), "Departure City displayed isnt the same as the last page");
-        Assert.assertTrue(page_reserve.city_confirmation(destination_city), "Destination City displayed isnt the same as the last page");
-
+        //verifico si al hacer click lo redireccina a la  pagina de reserve.
+        Assert.assertEquals(driver.getCurrentUrl(), reserve.getUrl(), "EL URL ACTUAL NO CORRESPONDE CON EL URL DE LA PAGINA 'RESERVE'");
+        Assert.assertTrue(reserve.city_confirmation(departure_city), "LA CIUDAD NO ES CORRECTA");
+        //Rectifico que
+        Assert.assertTrue(reserve.validateFormName(),"LOS FORMULARIOS GENERADOS NO TIENEN NOMBRES VALIDOS.");
 
     }
+
+
+
+
 }

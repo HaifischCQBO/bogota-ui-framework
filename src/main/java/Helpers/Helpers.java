@@ -4,11 +4,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class Helpers {
-    private static WebDriver driver;
+    private  WebDriver driver;
 
-    public Helpers(){
+    public Helpers() {
+        driver = SingletonDriver.getWebDriver();
     }
-    public Helpers(WebDriver driver){
+
+    public Helpers(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -16,21 +18,25 @@ public class Helpers {
         Print("Se ingresa a la URL:" + url);
         driver.get(url);
     }
-    public void Print(String texto){
+
+    public void Print(String texto) {
         System.out.println(texto);
     }
-    public void clickBy(By by){
+
+    public void ClickBy(By by){
         driver.findElement(by).click();
-        Print("Se realiza Click a Elemento:"+ by);
+        Print("Se ha clikeado el elemento " + by);
     }
+
     public void SendText(By by, String text){
         driver.findElement(by).sendKeys(text);
-        Print("Se envia texto:"+ text + " al elemento: "+ by);
+        Print("Se envía el texto " + text + " al elemento " + by);
     }
-    public String getText(By by) {
-        String text = driver.findElement(by).getText();
-        Print("Se Obtiene texto: "+ text + " del elemento: "+ by);
-        return text;
 
+    public void getText(By by){
+        String text = driver.findElement(by).getText();
+        Print("Se obtiene texto " + text + " del elemento " + by);
     }
+
+
 }

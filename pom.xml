@@ -32,6 +32,11 @@
             <artifactId>webdrivermanager</artifactId>
             <version>4.3.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>0.12</version>
+        </dependency>
 
     </dependencies>
 

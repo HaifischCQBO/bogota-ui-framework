@@ -31,13 +31,13 @@ public class Page_Index {
      * -----------------------------------------------------------------------------------------------------------
      */
 
-    public void select_departure_city(String city){
-        helpers.SendText(departure_city_select, city);
+    public String select_departure_city(){
+       return helpers.SelectByIndex(departure_city_select);
        //driver.findElement(departure_city_select).sendKeys("Mexico City");
     }
 
-    public void select_destination_city(String city){
-        helpers.SendText(destination_city_select, city);
+    public String select_destination_city(){
+        return helpers.SelectByIndex(destination_city_select);
         //driver.findElement(destination_city_select).sendKeys("Berlin");
     }
 

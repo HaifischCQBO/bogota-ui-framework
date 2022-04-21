@@ -1,49 +1,50 @@
 package Pages.Blazedemo;
 
 import Helpers.Helpers;
+import Helpers.SingletonDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class Page_Index {
-
+public class Page_Index implements Page {
+    private final String URL = "https://blazedemo.com/";
     public WebDriver driver;
     public Helpers helpers;
 
-    public Page_Index(WebDriver driver){
-        this.driver = driver;
-        helpers = new Helpers(driver);
+    public Page_Index(){
+        this.driver = SingletonDriver.getWebDriver();
+        helpers = new Helpers();
     }
 
     /**
-     * ---------------------------------------------------------------------------------------------------------
-     *  WebElements // WebElements // WebElements // WebElements // WebElements // WebElements // WebElements //
-     * ---------------------------------------------------------------------------------------------------------
+     * Aquí se implementa el método getUrl
+     */
+    @Override
+    public String getUrl() {
+        return this.URL;
+    }
+
+    /**
+     * WebElements.
      */
     public By departure_city_select = By.name("fromPort");
     public By destination_city_select = By.name("toPort");
-    public By find_flights_button = By.xpath("//input[@value='Find Flights']");
-
-
+    public By find_fliith_btn = By.xpath("//input[@value='Find Flights']");
 
     /**
-     * -----------------------------------------------------------------------------------------------------------
-     *  Funciones // Funciones //  Funciones //  Funciones //  Funciones //  Funciones //  Funciones //  Funciones
-     * -----------------------------------------------------------------------------------------------------------
+     * Functions
      */
 
     public void select_departure_city(String city){
-        helpers.SendText(departure_city_select, city);
-       //driver.findElement(departure_city_select).sendKeys("Mexico City");
+        helpers.SendText(departure_city_select,city);
     }
 
     public void select_destination_city(String city){
-        helpers.SendText(destination_city_select, city);
-        //driver.findElement(destination_city_select).sendKeys("Berlin");
+        helpers.SendText(destination_city_select,city);
     }
 
-    public void click_find_flights(){
-        helpers.clickBy(find_flights_button);
-        //driver.findElement(find_flights_button).click();
+    public void click_find_text(){
+        helpers.ClickBy(find_fliith_btn);
     }
+
 
 }

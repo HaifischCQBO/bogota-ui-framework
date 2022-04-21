@@ -1,8 +1,8 @@
-package Test;
+package Tests;
 
 import Baseclass.BaseClass;
-import Pages.Page_Index;
-import Pages.Page_Reserve;
+import Pages.Blazedemo.Page_Index;
+import Pages.Blazedemo.Page_Reserve;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import Helpers.Helpers;

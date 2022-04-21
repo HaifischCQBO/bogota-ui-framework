@@ -11,7 +11,7 @@ import java.util.ListIterator;
 import java.util.Locale;
 
 public class Page_Reserve implements Page {
-    private final String URL = "https://blazedemo.com/reserve.php";
+    private final String URL = Page.URL+"/reserve.php";
     public WebDriver driver;
     public Helpers helpers;
     public By title_h3 = By.tagName("H3");
@@ -34,7 +34,6 @@ public class Page_Reserve implements Page {
     }
 
     /**
-     *
      * Los forms deben tener un nombre con las iniciales del nombre de las aereolineas + el numero de vuelo
      * Actualmente hay un error porque el tercer vuelo (#9696) tiene mal su name. debe ser AL9696 pero tiene AL969
      */

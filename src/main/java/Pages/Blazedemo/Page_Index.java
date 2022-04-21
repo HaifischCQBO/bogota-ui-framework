@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class Page_Index implements Page {
-    private final String URL = "https://blazedemo.com/";
+    private final String URL = Page.URL + "/index.php";
     public WebDriver driver;
     public Helpers helpers;
 

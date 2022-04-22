@@ -19,12 +19,12 @@ public class Page_Reserve {
      *  WebElements // WebElements // WebElements // WebElements // WebElements // WebElements // WebElements //
      * ---------------------------------------------------------------------------------------------------------
      */
-    public By title_h3 = By.tagName("h3");
-    public By buttonChoose1 = By.xpath("//html/body/div[2]/table/tbody/tr[1]/td[1]/input");
-    public By buttonChoose2 = By.xpath("//html/body/div[2]/table/tbody/tr[2]/td[1]/input");
-    public By buttonChoose3 = By.xpath("//html/body/div[2]/table/tbody/tr[3]/td[1]/input");
-    public By buttonChoose4 = By.xpath("//html/body/div[2]/table/tbody/tr[4]/td[1]/input");
-    public By buttonChoose5 = By.xpath("//html/body/div[2]/table/tbody/tr[5]/td[1]/input");
+    private By title_h3 = By.tagName("h3");
+    private By buttonChoose1 = By.xpath("//html/body/div[2]/table/tbody/tr[1]/td[1]/input");
+    private By buttonChoose2 = By.xpath("//html/body/div[2]/table/tbody/tr[2]/td[1]/input");
+    private By buttonChoose3 = By.xpath("//html/body/div[2]/table/tbody/tr[3]/td[1]/input");
+    private By buttonChoose4 = By.xpath("//html/body/div[2]/table/tbody/tr[4]/td[1]/input");
+    private By buttonChoose5 = By.xpath("//html/body/div[2]/table/tbody/tr[5]/td[1]/input");
 
 
     /**
@@ -34,6 +34,7 @@ public class Page_Reserve {
      */
 
     public boolean city_confirmation(String city){
+
         return helpers.getText(title_h3).contains(city);
     }
 

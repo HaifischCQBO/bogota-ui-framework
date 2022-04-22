@@ -40,7 +40,7 @@ public class Page_Purchase {
      * -----------------------------------------------------------------------------------------------------------
      */
 
-    public void fill_form_purchase (){
+    public void fill_form_purchase (){  //METODO PARA RELLENAR UN FORMULARIO
         Faker faker = new Faker();
 
         helpers.SendText(name_input, faker.name().fullName()); //rellena el input con un nombre random

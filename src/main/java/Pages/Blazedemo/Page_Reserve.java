@@ -15,10 +15,15 @@ public class Page_Reserve implements Page {
     public WebDriver driver;
     public Helpers helpers;
     public By title_h3 = By.tagName("H3");
+    public By choose_this_flight_button = By.xpath("/html/body/div[2]/table/tbody/tr[3]/td[1]/input");
 
     public Page_Reserve(){
         this.driver = SingletonDriver.getWebDriver();
         helpers = new Helpers();
+    }
+
+    public void choose_this_flight_button(){
+        helpers.ClickBy(choose_this_flight_button);
     }
 
     public String getInitialsAirlines(String name){

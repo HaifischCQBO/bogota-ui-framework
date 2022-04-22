@@ -2,6 +2,9 @@ package Helpers;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
+import com.github.javafaker.Faker;
+import java.util.Random;
 
 public class Helpers {
     private  WebDriver driver;
@@ -37,6 +40,68 @@ public class Helpers {
         String text = driver.findElement(by).getText();
         Print("Se obtiene texto " + text + " del elemento " + by);
     }
+
+    public void Pause(int seconds) {
+        try {
+            Thread.sleep(seconds * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
+    public String returnFullAdress(){
+        Faker f = new Faker();
+        String street = f.address().streetAddress();
+        String appartment= f.address().secondaryAddress();
+        String address = street + " " + appartment;
+
+        return address;
+    }
+
+    public String SelectByOptionValue(By by, String value){
+        Select select = new Select(driver.findElement(by));
+        select.selectByValue(value);
+        return  select.getFirstSelectedOption().getText();
+    }
+    public String SelectByVisibleText(By by, String text){
+        Select select = new Select(driver.findElement(by));
+        select.selectByVisibleText(text);
+        return  select.getFirstSelectedOption().getText();
+    }
+    public String SelectByIndex(By by, int index){
+        Select select = new Select(driver.findElement(by));
+        select. selectByIndex(index);
+        return  select.getFirstSelectedOption().getText();
+    }
+    public String SelectByIndex(By by){
+        Random r = new Random();
+        Select select = new Select(driver.findElement(by));
+        int option_number = select.getOptions().size();
+        int index_option = r.nextInt(option_number-1);
+        //size: 1,2,3,4,5
+        //index: 0,1,2,3,4
+        select. selectByIndex(index_option);
+        return  select.getFirstSelectedOption().getText();
+    }
+
+    public int GetRandomNumber(int bound){
+        return new Random().nextInt(bound);
+    }
+
+
+
+
+    /**
+     *Esperas Dinamicas:
+     * Esperas Explicitas -> Esperas donde EXPLICITAMENTE se aguarda poor un elemento o condicion del mismo
+     * Esperas Implicitas -> que al buscar un elemento, este IMPLICITO que tiene que esperar una cantidad de tiempo.
+     *
+     *
+     * Estaticas
+     * Pauses -> !!!!!!!! NUNCA SE OCUPA!!!!!!!!!!!
+     * **/
+
+
 
 
 }

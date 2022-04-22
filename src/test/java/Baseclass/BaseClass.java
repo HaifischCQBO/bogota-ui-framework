@@ -13,7 +13,7 @@ public class BaseClass {
     @BeforeMethod
     public void setUp(){
         driver = SingletonDriver.getWebDriver();
-        SingletonDriver.setCloseWhenFinished(true);
+        SingletonDriver.setCloseWhenFinished(false);
     }
 
     @AfterMethod

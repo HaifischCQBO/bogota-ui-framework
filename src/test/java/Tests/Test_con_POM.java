@@ -2,6 +2,7 @@ package Tests;
 
 import Baseclass.BaseClass;
 import Helpers.Helpers;
+import Pages.Blazedemo.Page_Confirmation;
 import Pages.Blazedemo.Page_Index;
 import Pages.Blazedemo.Page_Purchase;
 import Pages.Blazedemo.Page_Reserve;
@@ -35,9 +36,11 @@ public class Test_con_POM extends BaseClass {
         Page_Purchase page_purchase = new Page_Purchase(driver);
         page_purchase.fill_form_purchase();
         page_purchase.click_remember_checkbox();
-        helpers.Pause(10);
+        //helpers.Pause(10);
         page_purchase.click_purchaseFlight_button();
 
+        Page_Confirmation page_confirmation = new Page_Confirmation(driver);
+        Assert.assertTrue(page_confirmation.post_sale_confirmation(), "The sale failed.");
 
     }
 }

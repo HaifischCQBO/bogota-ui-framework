@@ -4,7 +4,10 @@ import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Random;
 
@@ -25,8 +28,12 @@ public class Helpers {
         System.out.println(texto);
     }
     public void clickBy(By by){
-        driver.findElement(by).click();
+        new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(by)).click();
         Print("Se realiza Click a Elemento:"+ by);
+    }
+    public void clickWebelement(WebElement Elemento){
+        Elemento.click();
+        Print("Se realiza Click a Elemento:"+ Elemento);
     }
     public void SendText(By by, String text){
         WebElement elemento = driver.findElement(by);

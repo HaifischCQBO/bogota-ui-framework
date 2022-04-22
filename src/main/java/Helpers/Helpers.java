@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import org.testng.Reporter;
 import java.util.Random;
 
 public class Helpers {
@@ -18,6 +19,10 @@ public class Helpers {
     }
     public Helpers(WebDriver driver){
         this.driver = driver;
+    }
+
+    public String getXMLParameter(String key){
+        return Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter(key);
     }
 
     public void getURL(String url) {

@@ -11,7 +11,7 @@ public class Test_no_POM {
 
     public WebDriver driver;
 
-    @Test
+
     public void PrimeraPrueba(){
 
         WebDriverManager.chromedriver().setup();

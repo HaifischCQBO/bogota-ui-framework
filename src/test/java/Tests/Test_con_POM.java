@@ -15,7 +15,7 @@ public class Test_con_POM extends BaseClass {
     public void Take_a_Flight_test() {
 
         Helpers helpers = new Helpers(driver);
-        helpers.getURL("https://blazedemo.com/");
+        helpers.getURL(helpers.getXMLParameter("url"));
         Page_Index page_index = new Page_Index(driver);
         String departure_city = page_index.select_departure_city();
         String destination_city = page_index.select_destination_city();
@@ -35,12 +35,15 @@ public class Test_con_POM extends BaseClass {
 
         Page_Purchase page_purchase = new Page_Purchase(driver);
         page_purchase.fill_form_purchase();
+
+
         page_purchase.click_remember_checkbox();
         //helpers.Pause(10);
         page_purchase.click_purchaseFlight_button();
 
         Page_Confirmation page_confirmation = new Page_Confirmation(driver);
         Assert.assertTrue(page_confirmation.post_sale_confirmation(), "The sale failed.");
+
 
     }
 }

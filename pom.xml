@@ -4,18 +4,20 @@
   <artifactId>UI-Regresive-Framework</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
-  <properties>
+    <properties>
         <maven.compiler.source>18</maven.compiler.source>
         <maven.compiler.target>18</maven.compiler.target>
-   </properties>
+        <aspectj.version>1.8.10</aspectj.version>
+    </properties>
 
-   <dependencies>
+    <dependencies>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>3.141.59</version>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
             <groupId>org.testng</groupId>
@@ -23,13 +25,28 @@
             <version>7.1.0</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>4.3.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>0.12</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>2.13.2</version>
+        </dependency>
 
     </dependencies>
 
 </project>
+
+
 

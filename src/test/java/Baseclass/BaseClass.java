@@ -1,6 +1,7 @@
 package Baseclass;
 
 import Helpers.Helpers;
+import Helpers.SingletonDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,15 +15,14 @@ public class BaseClass {
 
     @BeforeMethod
     public void setUp(){
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-gpu");
-        driver =new ChromeDriver(options);
+        driver = SingletonDriver.getWebDriver();
+        SingletonDriver.setCloseWhenFinished(false);
     }
 
     @AfterMethod
     public void Finished(){
-        //driver.quit();
+        if(SingletonDriver.getCloseWhenFinished())
+            driver.quit();
     }
 
 

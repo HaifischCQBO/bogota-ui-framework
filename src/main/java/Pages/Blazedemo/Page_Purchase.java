@@ -20,8 +20,8 @@ public class Page_Purchase {
      *  WebElements // WebElements // WebElements // WebElements // WebElements // WebElements // WebElements //
      * ---------------------------------------------------------------------------------------------------------
      */
-    private By name_input = By.name("inputName");
-    private By address_input = By.name("address");
+    public By name_input = By.name("inputName");
+    public By address_input = By.name("address");
     private By city_input = By.name("city");
     private By state_input = By.name("state");
     private By zipCode_input = By.name("zipCode");

@@ -33,7 +33,6 @@ public class Page_Confirmation {
 
     public boolean post_sale_confirmation(){
         boolean present;
-
         try{
             driver.findElement(title_h1);
             present = true;

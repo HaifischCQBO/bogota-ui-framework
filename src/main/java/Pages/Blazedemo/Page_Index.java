@@ -32,13 +32,13 @@ public class Page_Index {
      */
 
     public String select_departure_city(){
-        return helpers.SelectByIndex(departure_city_select);
-        //driver.findElement(departure_city_select).sendKeys("Mexico City");
+       return helpers.SelectByIndex(departure_city_select);
+       //driver.findElement(departure_city_select).sendKeys("Mexico City");
     }
 
     public String select_destination_city(){
         return helpers.SelectByIndex(destination_city_select);
-        //driver.findElement(departure_city_select).sendKeys("Mexico City");
+        //driver.findElement(destination_city_select).sendKeys("Berlin");
     }
 
     public void click_find_flights(){

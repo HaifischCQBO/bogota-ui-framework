@@ -6,7 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="UI-Regresive-Framework" />
+        <module name="UI-Regression-Framework" />
       </profile>
     </annotationProcessing>
   </component>
